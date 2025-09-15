@@ -1,11 +1,10 @@
 package com.jejo.prueba_jpa.classes;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.jejo.prueba_jpa.elemento.entity.Elemento;
+import jakarta.persistence.*;
 
-public class Medidas {
+@Entity
+public class Medidas2D {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,17 +14,20 @@ public class Medidas {
     private String kind;
     private Double largo;
     private Double ancho;
-    private Double alto;
 
-    public Medidas() {
+    @OneToOne
+    @JoinColumn(name = "elemento_id")
+    private Elemento elemento;
+
+    public Medidas2D() {
     }
 
-    public Medidas(Long id, String kind, Double largo, Double ancho, Double alto) {
+    public Medidas2D(Long id, String kind, Double largo, Double ancho, Elemento elemento) {
         this.id = id;
         this.kind = kind;
         this.largo = largo;
         this.ancho = ancho;
-        this.alto = alto;
+        this.elemento = elemento;
     }
 
     public Long getId() {
@@ -60,11 +62,11 @@ public class Medidas {
         this.ancho = ancho;
     }
 
-    public Double getAlto() {
-        return alto;
+    public Elemento getElemento() {
+        return elemento;
     }
 
-    public void setAlto(Double alto) {
-        this.alto = alto;
+    public void setElemento(Elemento elemento) {
+        this.elemento = elemento;
     }
 }

@@ -1,9 +1,9 @@
 package com.jejo.prueba_jpa.classes;
 
+import com.jejo.prueba_jpa.elemento.entity.Elemento;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "areas")
 public class Areas {
 
     @Id
@@ -15,14 +15,19 @@ public class Areas {
     private Double areaOne;
     private Double areaAll;
 
+    @OneToOne
+    @JoinColumn(name = "elemento_id")
+    private Elemento elemento;
+
     public Areas() {
     }
 
-    public Areas(Long id, String kind, Double areaOne, Double areaAll) {
+    public Areas(Long id, String kind, Double areaOne, Double areaAll, Elemento elemento) {
         this.id = id;
         this.kind = kind;
         this.areaOne = areaOne;
         this.areaAll = areaAll;
+        this.elemento = elemento;
     }
 
     public Long getId() {
@@ -55,5 +60,13 @@ public class Areas {
 
     public void setAreaAll(Double areaAll) {
         this.areaAll = areaAll;
+    }
+
+    public Elemento getElemento() {
+        return elemento;
+    }
+
+    public void setElemento(Elemento elemento) {
+        this.elemento = elemento;
     }
 }

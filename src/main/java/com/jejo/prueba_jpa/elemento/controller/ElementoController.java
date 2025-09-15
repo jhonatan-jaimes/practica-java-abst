@@ -22,7 +22,7 @@ public class ElementoController {
         this.elementoService = elementoService;
     }
 
-    @PostMapping("/save")
+    @PostMapping("/save-elemento")
     public ResponseEntity<Message> saveElement(@RequestBody EntityDto entityDto){
         return ResponseEntity.ok(elementoService.saveElemento(entityDto));
     }
