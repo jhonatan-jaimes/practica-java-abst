@@ -13,6 +13,8 @@ import com.jejo.prueba_jpa.placa.PlacaDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class ElementoImplement implements ElementoService {
 
@@ -69,7 +71,7 @@ public class ElementoImplement implements ElementoService {
 
     @Override
     public Message saveElemento(EntityDto entityDto) {
-        elementoRespository.save(dtoToEntity(entityDto));
+        elementoRespository.save(Objects.requireNonNull(dtoToEntity(entityDto)));
         return new Message("Guardado");
     }
 
