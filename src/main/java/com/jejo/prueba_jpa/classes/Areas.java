@@ -15,7 +15,7 @@ public class Areas {
     private Double areaOne;
     private Double areaAll;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "elemento_id")
     private Elemento elemento;
 

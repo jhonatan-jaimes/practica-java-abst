@@ -1,6 +1,7 @@
 package com.jejo.prueba_jpa.ladrillo;
 
 import com.jejo.prueba_jpa.classes.Areas;
+import com.jejo.prueba_jpa.classes.Material;
 import com.jejo.prueba_jpa.classes.Medidas3D;
 import com.jejo.prueba_jpa.elemento.entity.Elemento;
 import jakarta.persistence.*;
@@ -13,6 +14,9 @@ public class Ladrillo extends Elemento {
 
     @OneToOne(mappedBy = "elemento", cascade = CascadeType.ALL)
     private Areas areas;
+
+    @OneToOne(mappedBy = "elemento", cascade = CascadeType.ALL)
+    private Material material;
 
     public Ladrillo() {
     }

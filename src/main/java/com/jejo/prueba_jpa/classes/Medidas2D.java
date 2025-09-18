@@ -15,7 +15,7 @@ public class Medidas2D {
     private Double largo;
     private Double ancho;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "elemento_id")
     private Elemento elemento;
 
